@@ -7,7 +7,7 @@
 <ul>
   {% for post in post_list %}
   <li>
-    {{ post.created_date }} | {{ post.category }} | {{ post.tag }} | {{ post.title }} | {{ post.post_views }} 명이 읽음
+    <a href = "{{ post.get_absolute_url }}" >{{ post.title }}</a> | {{ post.category }} | {{ post.tag }} | {{ post.created_date }} | {{ post.post_views }} 명이 읽음
   </li>
   {% endfor %}
 </ul>
