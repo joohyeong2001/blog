@@ -1,19 +1,16 @@
 {% block title %}
-  <title>Post List</title>
-{% endblock %} 
+<title>Post List</title>
+{% endblock %} {% block content %}
+<h1>Post List</h1>
 
-{% block content %}
-  <h1>Post List</h1>
-  
-  {% if post_list %}
-    <ul>
-      {% for post in post_list %}
-        <li>
-          {{ post.title }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no posts in the library.</p>
-  {% endif %}       
-{% endblock %}
+{% if post_list %}
+<ul>
+  {% for post in post_list %}
+  <li>
+    {{ post.title }} {{ post.category }}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>There are no posts in the library.</p>
+{% endif %} {% endblock %}
