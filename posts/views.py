@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
-
+from django.urls import reverse
 from .models import Post
+
+from django.http import HttpResponseRedirect
 
 
 class PostListView(generic.ListView):

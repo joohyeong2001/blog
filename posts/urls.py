@@ -5,5 +5,5 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.PostListView.as_view(), name='index'),
+    path('postlist/', views.PostListView.as_view(), name='post_lists'),
 ]
