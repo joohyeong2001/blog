@@ -18,6 +18,7 @@
       <div class="col-sm-2">
         {% block sidebar %}
           <ul class="sidebar-nav">
+            <li><a href="{% url 'index' %}"> Index </a></li>
             <li><a href="{% url 'post-list' %}"> Post List </a></li>
             {% comment %} <li><a href="{{ post.get_absolute_url }}"> Post Detail </a></li> {% endcomment %}
             <hr>
