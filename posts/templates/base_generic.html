@@ -19,9 +19,19 @@
         {% block sidebar %}
           <ul class="sidebar-nav">
             <li><a href="{% url 'index' %}"> Index </a></li>
-            <li><a href="{% url 'post-list' %}"> Post List </a></li>
+            {% comment %} <li><a href="{% url 'post-list' %}"> Post List </a></li> {% endcomment %}
             {% comment %} <li><a href="{{ post.get_absolute_url }}"> Post Detail </a></li> {% endcomment %}
             <hr>
+            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>  
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+              <li>User: {{ user.get_username }}</li>   
+            {% if user.is_staff %} 
+              <li><a href="{% url 'post-list' %}"> Post List </a></li>
+            {% else %}
+              <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+            {% endif %}
+            {% endif %} 
           </ul>
         {% endblock %}
       </div>
