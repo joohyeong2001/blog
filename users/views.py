@@ -1,3 +1,14 @@
 from django.shortcuts import render
+from django.views import generic
+from django.urls import reverse
+from .models import User
 
-# Create your views here.
+from django.http import HttpResponseRedirect
+
+class UserListView(generic.ListView):
+    model = User
+    paginate_by = 5
+
+
+class UserDetailView(generic.DetailView):
+    model = User

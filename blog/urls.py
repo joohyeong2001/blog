@@ -26,6 +26,7 @@ from posts import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("posts.urls")),
+    path("user/", include("users.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
 ]
 
