@@ -8,8 +8,8 @@
   <h1>Title: {{ post.title }}</h1>
   <hr>
   <p><strong>Category:</strong> {{ post.category }}</p> 
-  <hr>
-  <p><strong>Image:</strong></p>
+    <hr>
+    <p><strong>Image:<img src="{{ post.photo.url }}"> </strong></p>
   <hr>
   <p><strong>Text:</strong> {{ post.text }}</p>
 {% endblock %}
