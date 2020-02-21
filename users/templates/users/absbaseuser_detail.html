@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+  <title>User Detail</title>
+{% endblock %} 
+
+{% block content %}
+  <h1>Name: {{ absbaseuser.custom_username }}</h1>
+  <hr>
+  <p><strong>Last Login:</strong> {{ absbaseuser.last_login }}</p> 
+  <hr>
+  <p>url : {{ absbaseuser.avatar.url }}</p>
+  <p><strong>Avatar:<img src="{{ absbaseuser.avatar }}"> </strong></p>
+{% endblock %}

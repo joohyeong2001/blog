@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractBaseUser
 # Create your models here.
 
 
-class User(AbstractBaseUser):
+class AbsBaseUser(AbstractBaseUser):
     custom_username = models.CharField(max_length=20, verbose_name='name', null=True)
     USERNAME_FIELD = 'custom_username'
     avatar = models.ImageField(blank=True)
