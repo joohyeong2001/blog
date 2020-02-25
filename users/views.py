@@ -12,3 +12,7 @@ class UserListView(generic.ListView):
 
 class UserDetailView(generic.DetailView):
     model = AbsBaseUser
+
+
+def UserProfile(request):
+    return render(request, "users/user_profile.html")
