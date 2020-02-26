@@ -25,6 +25,8 @@ def Index(request):
 #     paginate_by = 5
 
 # FBV - PostListView
+def PostListView(request):
+
 
 
 class PostDetailView(generic.DetailView):
