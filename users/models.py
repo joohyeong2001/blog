@@ -1,19 +1,18 @@
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth.models import AbstractBaseUser
-from django.contrib.auth.models import UserManager
-
-# Create your models here.
+from django.contrib.auth.models import AbstractUser
 
 
-class AbsBaseUser(AbstractBaseUser):
-    custom_username = models.CharField(max_length=20, verbose_name='name', null=True, unique=True)
-    USERNAME_FIELD = 'custom_username'
+class AbsBaseUser(AbstractUser):
+    username = models.CharField(
+        max_length=20, verbose_name="name", null=True, unique=True
+    )
+    USERNAME_FIELD = "username"
     avatar = models.ImageField(blank=True)
-    objects = UserManager()
+
     def __str__(self):
-    # """ String for representing the Model object."""
-        return self.custom_username
+        # """ String for representing the Model object."""
+        return self.username
 
     def get_absolute_url(self):
         """ Returns the url to access a detail record for this user. """
