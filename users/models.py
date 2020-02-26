@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import AbstractUser
 
 
-class AbsBaseUser(AbstractUser):
+class User(AbstractUser):
     username = models.CharField(
         max_length=20, verbose_name="name", null=True, unique=True
     )

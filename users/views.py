@@ -3,16 +3,16 @@ from django.views import generic
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
-from .models import AbsBaseUser
+from .models import User
 
 
 class UserListView(generic.ListView):
-    model = AbsBaseUser
+    model = User
     paginate_by = 5
 
 
 class UserDetailView(generic.DetailView):
-    model = AbsBaseUser
+    model = User
 
 
 def UserProfile(request):
