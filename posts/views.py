@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.urls import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 
 from .models import Post
 
@@ -16,7 +16,7 @@ def Index(request):
         "num_visits": num_visits,
     }
 
-    return render(request, "index.html", context=context)
+    return render(request, "posts/index.html", context=context)
 
 
 # CBV PostListView
@@ -28,9 +28,17 @@ def Index(request):
 def PostListView(request):
     posts = Post.objects.all()
 
-    context = {"posts": posts}
+    context = {
+        "posts": posts
+    }
+
     return render(request, "post_list.html", context=context)
 
 
-class PostDetailView(generic.DetailView):
-    model = Post
+def PostDetailView(request, pk):
+    try:
+        p = Post.objects.get(pk = pk)
+    except Post.DoesNotExist:
+        raise Http404("Post %s does not exist" % pk)
+
+    return render(request, 'post_detail.html', {'post' : p})
