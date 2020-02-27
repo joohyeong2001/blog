@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+  <title>Post Detail</title>
+{% endblock %} 
+
+{% block content %}
+  <h1>Title: {{ post.title }}</h1>
+  <hr>
+  <p><strong>Category:</strong> {{ post.category }}</p> 
+  <hr>
+  <p>url : {{ post.photo.url }}</p>
+  <p><strong>Image:<img src="{{ post.photo.url }}"> </strong></p>
+  <hr>
+  <p><strong>Text:</strong> {{ post.text }}</p>
+{% endblock %}
