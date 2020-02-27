@@ -24,15 +24,21 @@
                 <li><a href="{% url 'post-list' %}"> Post List </a></li>
                 <li><a href="{% url 'user-list' %}"> User List</a></li>
             {% endif %}
+
             <hr>
+
             {% if not request.user.is_authenticated %}
-              <li><a href="{% url 'login' %}?next={{request.path}}">Login</a></li>  
+              {% comment %} <li><a href="{% url 'login' %}?next={{request.path}}">Login</a></li> {% endcomment %}
+              <li><a href="{% url 'login' %}">Login</a></li>  
             {% endif %}
 
             {% if request.user.is_authenticated %}
               <li><a href = "{{ request.user.get_absolute_url }}" >User: {{ request.user.get_username }}</a></li> 
-              <li><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>
+              {% comment %} <li><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></li> {% endcomment %}
+              <li><a href="{% url 'logout' %}">Logout</a></li>
             {% endif %}
+
+            <li><a href="{% url 'signup' %}">Register</a></li> 
 
           </ul>
         {% endblock %}
