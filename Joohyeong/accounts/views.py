@@ -17,6 +17,7 @@ def login(request):
             return render(request, 'login.html', {'error':'username or password is incorrect'})
     else:
         return render(request, 'login.html')
+        
 
 def signup(request):
     if request.method =="POST":
@@ -27,6 +28,7 @@ def signup(request):
             return redirect('index')
         return render(request, 'signup.html')
     return render(request, 'signup.html')
+
 
 def logout(request):
     auth.logout(request)
