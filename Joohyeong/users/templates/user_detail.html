@@ -9,6 +9,8 @@
   <hr>
   <p><strong>Last Login:</strong> {{ user.last_login }}</p> 
   <hr>
-  <p>url : {{ user.avatar.url }}</p>
-  <p><strong>Avatar:<img src="{{ user.avatar.url }}"> </strong></p>
+  {% if user.avatar %}
+    <p>url : {{ user.avatar.url }}</p>
+    <p><strong>Avatar:<img src="{{ user.avatar.url }}"> </strong></p>
+  {% endif %}
 {% endblock %}

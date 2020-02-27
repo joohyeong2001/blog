@@ -16,7 +16,7 @@ def Index(request):
         "num_visits": num_visits,
     }
 
-    return render(request, "posts/index.html", context=context)
+    return render(request, "index.html", context=context)
 
 
 # CBV PostListView

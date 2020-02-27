@@ -28,7 +28,3 @@ def UserDetailView(request, pk):
         raise Http404("user %s does not exist" % pk)
 
     return render(request, "user_detail.html", {"user": user})
-
-
-def UserProfile(request):
-    return render(request, "users/user_profile.html")
