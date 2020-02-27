@@ -16,7 +16,7 @@ def Index(request):
         "num_visits": num_visits,
     }
 
-    return render(request, "posts/index.html", context=context)
+    return render(request, "index.html", context=context)
 
 
 # CBV PostListView
@@ -28,17 +28,16 @@ def Index(request):
 def PostListView(request):
     posts = Post.objects.all()
 
-    context = {
-        "posts": posts
-    }
+    context = {"posts": posts}
 
     return render(request, "post_list.html", context=context)
 
 
 def PostDetailView(request, pk):
     try:
-        p = Post.objects.get(pk = pk)
-    except Post.DoesNotExist:
+        post = Post.objects.get(pk=pk)
+    except post.DoesNotExist:
         raise Http404("Post %s does not exist" % pk)
 
-    return render(request, 'post_detail.html', {'post' : p})
+    return render(request, "post_detail.html", {"post": post})
+

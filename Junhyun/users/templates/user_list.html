@@ -7,9 +7,9 @@
 {% block content %}
 <h1>User List</h1>
 
-{% if user_list %}
+{% if users %}
 <ul>
-  {% for user in user_list %}
+  {% for user in users %}
   <li>
     <a href = "{{ user.get_absolute_url }}" >{{ user.username }}</a>
   </li>
