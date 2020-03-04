@@ -1,8 +1,9 @@
 {% extends "base_generic.html" %}
 
 {% block conetent %}
-<div>
+<div class="container">
     <h1>sign up!</h1>
+    
     <form method ="POST" action="{% url 'signup' %}">
         {% csrf_token %}
         Username:
